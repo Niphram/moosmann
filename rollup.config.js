@@ -12,13 +12,13 @@ module.exports = packages.flatMap((package) => makeConfig({ package }));
  * @param {string} param0.package
  */
 function makeConfig({ package }) {
-  const options = {
-    packageDir: `packages/${package}/`,
-    input: `packages/${package}/src/index.ts`,
-    output: `packages/${package}/dist`,
-  };
+    const options = {
+        packageDir: `packages/${package}/`,
+        input: `packages/${package}/src/index.ts`,
+        output: `packages/${package}/dist`,
+    };
 
-  return [cjs(options), mjs(options), types(options)];
+    return [cjs(options), mjs(options), types(options)];
 }
 
 /**
@@ -28,19 +28,19 @@ function makeConfig({ package }) {
  * @param {string} param0.packageDir
  */
 function cjs({ input, output, packageDir }) {
-  return {
-    input,
-    external,
-    output: {
-      dir: output,
-      format: "cjs",
-      sourcemap: true,
-      exports: "named",
-      preserveModules: false,
-      entryFileNames: "[name].js",
-    },
-    plugins: [typescript()],
-  };
+    return {
+        input,
+        external,
+        output: {
+            dir: output,
+            format: "cjs",
+            sourcemap: true,
+            exports: "named",
+            preserveModules: false,
+            entryFileNames: "[name].js",
+        },
+        plugins: [typescript()],
+    };
 }
 
 /**
@@ -50,18 +50,18 @@ function cjs({ input, output, packageDir }) {
  * @param {string} param0.packageDir
  */
 function mjs({ input, output, packageDir }) {
-  return {
-    input,
-    external,
-    output: {
-      format: "esm",
-      dir: output,
-      sourcemap: true,
-      preserveModules: false,
-      entryFileNames: "[name].esm.js",
-    },
-    plugins: [typescript()],
-  };
+    return {
+        input,
+        external,
+        output: {
+            format: "esm",
+            dir: output,
+            sourcemap: true,
+            preserveModules: false,
+            entryFileNames: "[name].esm.js",
+        },
+        plugins: [typescript()],
+    };
 }
 
 /**
@@ -71,13 +71,13 @@ function mjs({ input, output, packageDir }) {
  * @param {string} param0.packageDir
  */
 function types({ input, output, packageDir }) {
-  return {
-    input,
-    external,
-    output: {
-      format: "es",
-      dir: output,
-    },
-    plugins: [dts()],
-  };
+    return {
+        input,
+        external,
+        output: {
+            format: "es",
+            dir: output,
+        },
+        plugins: [dts()],
+    };
 }
