@@ -1,0 +1,11 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "paths": {
+            "moosmann": ["./src"]
+        },
+        "lib": ["ESNext", "DOM"],
+        "module": "ESNext",
+        "target": "ESNext"
+    }
+}

@@ -39,7 +39,7 @@ function cjs({ input, output, packageDir }) {
             preserveModules: false,
             entryFileNames: "[name].js",
         },
-        plugins: [typescript()],
+        plugins: [typescript({ tsconfig: `${packageDir}tsconfig.json` })],
     };
 }
 
@@ -60,7 +60,7 @@ function mjs({ input, output, packageDir }) {
             preserveModules: false,
             entryFileNames: "[name].esm.js",
         },
-        plugins: [typescript()],
+        plugins: [typescript({ tsconfig: `${packageDir}tsconfig.json` })],
     };
 }
 
