@@ -2,6 +2,9 @@
 
 i18n for developers
 
-## How to use
+## Packages
 
--   ToDo
+| Package                                      | Description                                |
+| -------------------------------------------- | ------------------------------------------ |
+| [moosmann](packages/moosmann/)               | The core of moosmann, can be used anywhere |
+| [moosmann-svelte](packages/moosmann-svelte/) | Easily use moosmann with svelte            |
