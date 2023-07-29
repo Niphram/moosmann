@@ -1,5 +1,11 @@
 # moosmann
 
+## 0.4.0
+
+### Minor Changes
+
+-   Add functionality to synchronously load locale
+
 ## 0.3.1
 
 ### Patch Changes

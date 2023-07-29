@@ -1,5 +1,16 @@
 # moosmann-svelte
 
+## 0.4.0
+
+### Minor Changes
+
+-   No longer requires top level await to use
+
+### Patch Changes
+
+-   Updated dependencies
+    -   moosmann@0.4.0
+
 ## 0.3.1
 
 ### Patch Changes

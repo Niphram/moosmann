@@ -29,8 +29,8 @@ export default {
 2. Create moosmann stores
 
 ```typescript
-export const { locale, t, localeKeys } = await moosmannStores("en", {
-    en: en,
+export const { locale, t, localeKeys, isInitialized } = moosmannStores("en", {
+    en: () => import("./locales/en"),
     de: () => import("./locales/de"),
 });
 ```
@@ -40,10 +40,12 @@ export const { locale, t, localeKeys } = await moosmannStores("en", {
 ```Svelte
 // [greeting.svelte]
 <script lang="ts">
-    import { t } from "./i18n";
+    import { t, isInitialized } from "./i18n";
 </script>
 
-<h1>{$t("greeting", "Moosmann")}</h1>
+{#if $isInitialized}
+    <h1>{$t("greeting", "Moosmann")}</h1>
+{/if}
 ```
 
 See [examples](/packages/moosmann-svelte/examples) for more!

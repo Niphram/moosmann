@@ -1,8 +1,6 @@
 import { moosmannStores } from "moosmann-svelte";
 
-import en from "./locales/en";
-
-export const { t, locale, localeKeys } = await moosmannStores("en", {
-    en: en,
+export const { t, locale, localeKeys, isInitialized } = moosmannStores("en", {
+    en: () => import("./locales/en"),
     de: () => import("./locales/de"),
 });
