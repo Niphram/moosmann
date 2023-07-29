@@ -1,5 +1,13 @@
 # moosmann-svelte
 
+## 0.3.1
+
+### Patch Changes
+
+-   fix exported types
+-   Updated dependencies
+    -   moosmann@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes
