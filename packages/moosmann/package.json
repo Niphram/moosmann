@@ -1,17 +1,23 @@
 {
     "name": "moosmann",
     "version": "0.3.0",
-    "description": "i18n for developers",
-    "keywords": [],
+    "description": "i18n for typescript developers",
+    "keywords": [
+        "i18n",
+        "typescript"
+    ],
     "author": "Niphram",
     "license": "MIT",
     "repository": {
         "url": "https://github.com/Niphram/moosmann"
     },
-    "types": "dist/index.d.ts",
-    "main": "dist/index.js",
-    "module": "dist/index.esm.js",
     "files": [
         "dist"
-    ]
+    ],
+    "main": "src/index.ts",
+    "publishConfig": {
+        "types": "dist/index.d.ts",
+        "main": "dist/index.js",
+        "module": "dist/index.esm.js"
+    }
 }
