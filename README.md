@@ -6,7 +6,7 @@ i18n for developers
 
 ## Packages
 
-| Package                                      | Description                                |
-| -------------------------------------------- | ------------------------------------------ |
-| [moosmann](packages/moosmann/)               | The core of moosmann, can be used anywhere |
-| [moosmann-svelte](packages/moosmann-svelte/) | Easily use moosmann with svelte            |
+| npm                                                                                                      | Package                                      | Description                                |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
+| [![npm version](https://badge.fury.io/js/moosmann.svg)](https://badge.fury.io/js/moosmann)               | [moosmann](packages/moosmann/)               | The core of moosmann, can be used anywhere |
+| [![npm version](https://badge.fury.io/js/moosmann-svelte.svg)](https://badge.fury.io/js/moosmann-svelte) | [moosmann-svelte](packages/moosmann-svelte/) | Easily use moosmann with svelte            |
