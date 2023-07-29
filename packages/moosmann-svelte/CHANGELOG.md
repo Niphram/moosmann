@@ -1,5 +1,16 @@
 # moosmann-svelte
 
+## 0.3.0
+
+### Minor Changes
+
+-   refactoring and cleanup, breaks API
+
+### Patch Changes
+
+-   Updated dependencies
+    -   moosmann@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes

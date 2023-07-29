@@ -1,11 +1,11 @@
 import { writable, derived } from "svelte/store";
-import { GenericLocale, LocaleMap, translator } from "moosmann";
+import { GenericLocale, LocaleMap, moosmann } from "moosmann";
 
-export async function makeTranslationStore<Schema extends GenericLocale>(
+export async function moosmannStores<Schema extends GenericLocale>(
     defaultLocale: string,
     locales: LocaleMap<Schema>
 ) {
-    const translatorFactory = translator(locales);
+    const translatorFactory = moosmann(locales);
     const localeKeys = translatorFactory.localeKeys;
     const defaultTranslator = await translatorFactory.loadLocale(defaultLocale);
 
@@ -16,7 +16,8 @@ export async function makeTranslationStore<Schema extends GenericLocale>(
         ([locale], set) => {
             translatorFactory
                 .loadLocale(locale)
-                .then((translator) => set(translator));
+                .then((translator) => set(translator))
+                .catch(console.error);
         },
         defaultTranslator
     );

@@ -1,4 +1,4 @@
-import { translator } from "moosmann";
+import { moosmann } from "moosmann";
 
 import en from "./locales/en";
 
@@ -8,7 +8,10 @@ const locales = {
     "de-CH": () => import("./locales/de-CH"),
 };
 
-const i18n = translator(locales);
+// Construct the moosmann instance.
+// Explicitly setting the generic is technically not needed,
+// but it will make sure you get an error when the locale schemas do not match.
+const i18n = moosmann<typeof en>(locales);
 
 // You can get a list of available locales
 console.log(i18n.localeKeys);

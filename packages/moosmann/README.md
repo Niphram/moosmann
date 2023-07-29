@@ -6,4 +6,40 @@ i18n for typescript developers
 
 ## How to use
 
-See [examples](examples) for more!
+1. Create your locales:
+
+```typescript
+// [locales/en.ts]
+export default {
+    greeting: (name: string) => `Hello, ${name}!`,
+};
+```
+
+```typescript
+// [locales/de.ts]
+import type en from "./en";
+
+export default {
+    greeting: (name) => `Hallo, ${name}!`,
+} satisfies typeof en;
+```
+
+2. Construct an instance of moosmann
+
+```typescript
+export const i18n = moosmann({
+    en: en,
+    de: () => import("./locales/de"),
+});
+```
+
+3. Load a locale and use it
+
+```typescript
+const t = await i18n.loadLocale("de");
+
+const greeting = t("greeting", "Moosmann");
+// => "Hallo, Moosmann!"
+```
+
+See [examples](/packages/moosmann/examples) for more!

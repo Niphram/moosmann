@@ -6,7 +6,6 @@ import {
     type NestedKeyof,
     type NonObject,
     type ParametersOrValue,
-    type DeepPartial,
 } from "./utils";
 
 export type GenericLocale = {
@@ -18,17 +17,26 @@ export type LocaleMap<Schema extends object> = Record<
     DynamicDefaultImport<Schema> | Schema
 >;
 
-export function translator<Schema extends GenericLocale>(
-    locales: LocaleMap<Schema>
+/**
+ * Constructs the moosmann instance.
+ *
+ * You can pass locales either directly or using a function that dynamically imports.
+ *
+ * @param localeMap all locales that may be loaded
+ */
+export function moosmann<Schema extends GenericLocale>(
+    localeMap: LocaleMap<Schema>
 ) {
-    const localeKeys = Object.keys(locales);
+    const localeMapKeys = Object.keys(localeMap);
 
     async function loadLocale(localeKey: string) {
-        const loader = locales[localeKey];
-        if (!loader) throw new Error("Unknown Locale");
+        const loadedLocale = localeMap[localeKey];
+        if (!loadedLocale) throw new Error("Unknown Locale");
 
         const locale =
-            typeof loader === "function" ? (await loader()).default : loader;
+            typeof loadedLocale === "function"
+                ? (await loadedLocale()).default
+                : loadedLocale;
 
         return function t<Key extends NestedKeyof<Schema>>(
             key: Key,
@@ -39,36 +47,7 @@ export function translator<Schema extends GenericLocale>(
     }
 
     return {
-        localeKeys,
-        loadLocale,
-    };
-}
-
-export function translatorWithFallback<Schema extends GenericLocale>(
-    fallback: Schema,
-    locales: LocaleMap<DeepPartial<Schema>>
-) {
-    const localeKeys = Object.keys(locales);
-
-    async function loadLocale(localeKey: string) {
-        const loader = locales[localeKey];
-        if (!loader) throw new Error("Unknown Locale");
-
-        const locale =
-            typeof loader === "function" ? (await loader()).default : loader;
-
-        return function t<Key extends NestedKeyof<Schema>>(
-            key: Key,
-            ...params: ParametersOrValue<Get<Schema, Key>, []>
-        ) {
-            const value = get(locale, key) ?? get(fallback, key);
-
-            return callOrValue(value, ...params);
-        };
-    }
-
-    return {
-        localeKeys,
+        localeKeys: localeMapKeys,
         loadLocale,
     };
 }

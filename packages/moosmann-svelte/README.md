@@ -6,4 +6,42 @@ Integrate moosmann into svelte
 
 ## How to use
 
-See [examples](examples)
+1. Create your locales:
+
+```typescript
+// [locales/en.ts]
+export default {
+    greeting: (name: string) => `Hello, ${name}!`,
+};
+```
+
+```typescript
+// [locales/de.ts]
+import type en from "./en";
+
+export default {
+    greeting: (name) => `Hallo, ${name}!`,
+} satisfies typeof en;
+```
+
+2. Create moosmann stores
+
+```typescript
+export const { locale, t, localeKeys } = await moosmannStores("en", {
+    en: en,
+    de: () => import("./locales/de"),
+});
+```
+
+3. Use your created stores in your components
+
+```Svelte
+// [greeting.svelte]
+<script lang="ts">
+    import { t } from "./i18n";
+</script>
+
+<h1>{$t("greeting", "Moosmann")}</h1>
+```
+
+See [examples](/packages/moosmann-svelte/examples) for more!

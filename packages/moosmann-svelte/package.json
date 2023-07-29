@@ -1,6 +1,6 @@
 {
     "name": "moosmann-svelte",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "moosmann for svelte",
     "keywords": [],
     "author": "Niphram",
@@ -9,7 +9,7 @@
         "url": "https://github.com/Niphram/moosmann"
     },
     "dependencies": {
-        "moosmann": "workspace:*"
+        "moosmann": "workspace:^"
     },
     "peerDependencies": {
         "svelte": "^3.0.0 || ^4.0.0"
