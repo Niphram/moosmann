@@ -1,5 +1,11 @@
 # moosmann-svelte
 
+## 0.4.1
+
+### Patch Changes
+
+-   FIX: without a subscriber on the t-store the locale would never be loaded
+
 ## 0.4.0
 
 ### Minor Changes

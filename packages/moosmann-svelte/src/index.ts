@@ -19,28 +19,26 @@ export function moosmannStores<Schema extends GenericLocale>(
     // Counts the currently loading locales
     const currentlyLoadingLocales = writable(0);
 
-    const t = derived(
-        [locale],
-        ([$locale], set) => {
-            currentlyLoadingLocales.update((v) => v + 1);
+    const t = writable<Translator<Schema>>(() => {
+        throw new Error("[moosmann-svelte] Not yet initialized!");
+    });
 
-            moosmannInstance
-                .loadLocale($locale)
-                .then((translator) => {
-                    set(translator);
-                    isInitialized.set(true);
-                })
-                .catch(console.error)
-                .finally(() => currentlyLoadingLocales.update((v) => v - 1));
-        },
-        (() => {
-            throw new Error("[moosmann-svelte] Not yet initialized!");
-        }) as Translator<Schema>
-    );
+    locale.subscribe((locale) => {
+        currentlyLoadingLocales.update((v) => v + 1);
+
+        moosmannInstance
+            .loadLocale(locale)
+            .then((translator) => {
+                t.set(translator);
+                isInitialized.set(true);
+            })
+            .catch(console.error)
+            .finally(() => currentlyLoadingLocales.update((v) => v - 1));
+    });
 
     return {
         locale,
-        t,
+        t: readonly(t),
         localeKeys,
         isInitialized: readonly(isInitialized),
         isLoading: derived([currentlyLoadingLocales], ([c]) => c !== 0),
