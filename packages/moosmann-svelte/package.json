@@ -1,6 +1,6 @@
 {
     "name": "moosmann-svelte",
-    "version": "0.4.1",
+    "version": "0.5.0",
     "description": "moosmann for svelte",
     "keywords": [
         "moosmann",
@@ -17,7 +17,7 @@
         "moosmann": "workspace:^"
     },
     "peerDependencies": {
-        "svelte": "^3.0.0 || ^4.0.0"
+        "svelte": "^3.0.0 || ^4.0.0 || ^5.0.0"
     },
     "files": [
         "dist"

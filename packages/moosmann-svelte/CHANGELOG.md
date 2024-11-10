@@ -1,5 +1,11 @@
 # moosmann-svelte
 
+## 0.5.0
+
+### Minor Changes
+
+-   Svelte 5
+
 ## 0.4.1
 
 ### Patch Changes
