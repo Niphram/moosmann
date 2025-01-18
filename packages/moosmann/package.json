@@ -1,6 +1,6 @@
 {
     "name": "moosmann",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "i18n for typescript developers",
     "keywords": [
         "i18n",
@@ -11,16 +11,22 @@
     "repository": {
         "url": "https://github.com/Niphram/moosmann"
     },
-    "files": [
-        "dist"
-    ],
     "scripts": {
-        "build": "tsup src/index.ts --dts --sourcemap --format esm,cjs"
+        "build": "tsup src/index.ts"
     },
+    "files": [
+        "dist",
+        "package.json"
+    ],
     "main": "src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs"
+        }
+    },
     "publishConfig": {
-        "types": "dist/index.d.ts",
-        "main": "dist/index.js",
-        "module": "dist/index.mjs.js"
+        "main": "dist/index.js"
     }
 }

@@ -1,5 +1,11 @@
 # moosmann
 
+## 0.5.1
+
+### Patch Changes
+
+-   fix build
+
 ## 0.5.0
 
 ### Minor Changes

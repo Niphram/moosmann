@@ -1,5 +1,13 @@
 # moosmann-svelte
 
+## 0.6.1
+
+### Patch Changes
+
+-   fix build
+-   Updated dependencies
+    -   moosmann@0.5.1
+
 ## 0.6.0
 
 ### Minor Changes

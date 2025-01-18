@@ -1,7 +1,8 @@
 {
     "name": "moosmann-svelte",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "description": "moosmann for svelte",
+    "type": "module",
     "keywords": [
         "moosmann",
         "i18n",
@@ -14,7 +15,7 @@
         "url": "https://github.com/Niphram/moosmann"
     },
     "scripts": {
-        "build": "tsup src/index.ts --dts --sourcemap --format esm,cjs"
+        "build": "tsup src/index.ts"
     },
     "dependencies": {
         "moosmann": "workspace:^"
@@ -23,12 +24,18 @@
         "svelte": "^3.0.0 || ^4.0.0 || ^5.0.0"
     },
     "files": [
-        "dist"
+        "dist",
+        "package.json"
     ],
     "main": "src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs"
+        }
+    },
     "publishConfig": {
-        "types": "dist/index.d.ts",
-        "main": "dist/index.js",
-        "module": "dist/index.mjs.js"
+        "main": "dist/index.js"
     }
 }
