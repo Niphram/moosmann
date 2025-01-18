@@ -1,6 +1,6 @@
 {
     "name": "moosmann-svelte",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "moosmann for svelte",
     "keywords": [
         "moosmann",
@@ -12,6 +12,9 @@
     "license": "MIT",
     "repository": {
         "url": "https://github.com/Niphram/moosmann"
+    },
+    "scripts": {
+        "build": "tsup src/index.ts --dts --sourcemap --format esm,cjs"
     },
     "dependencies": {
         "moosmann": "workspace:^"
@@ -26,6 +29,6 @@
     "publishConfig": {
         "types": "dist/index.d.ts",
         "main": "dist/index.js",
-        "module": "dist/index.esm.js"
+        "module": "dist/index.mjs.js"
     }
 }

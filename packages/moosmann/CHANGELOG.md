@@ -1,5 +1,11 @@
 # moosmann
 
+## 0.5.0
+
+### Minor Changes
+
+-   Bundling change
+
 ## 0.4.0
 
 ### Minor Changes
