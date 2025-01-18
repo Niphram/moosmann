@@ -1,8 +1,7 @@
 {
     "name": "moosmann-svelte",
-    "version": "0.6.1",
+    "version": "0.6.2",
     "description": "moosmann for svelte",
-    "type": "module",
     "keywords": [
         "moosmann",
         "i18n",

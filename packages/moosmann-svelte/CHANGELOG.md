@@ -1,5 +1,11 @@
 # moosmann-svelte
 
+## 0.6.2
+
+### Patch Changes
+
+-   fix build. again.
+
 ## 0.6.1
 
 ### Patch Changes
